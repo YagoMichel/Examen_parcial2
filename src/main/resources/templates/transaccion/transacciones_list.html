@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clientes_potenciales</title>
+    
+    <link
+      rel="icon"
+      href="assets/img/kaiadmin/favicon.ico"
+      type="image/x-icon"
+    />
+
+    <!-- Fonts and icons -->
+    <script src="assets/js/plugin/webfont/webfont.min.js"></script>
+    <script>
+      WebFont.load({
+        google: { families: ["Public Sans:300,400,500,600,700"] },
+        custom: {
+          families: [
+            "Font Awesome 5 Solid",
+            "Font Awesome 5 Regular",
+            "Font Awesome 5 Brands",
+            "simple-line-icons",
+          ],
+          urls: ["assets/css/fonts.min.css"],
+        },
+        active: function () {
+          sessionStorage.fonts = true;
+        },
+      });
+    </script>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins.min.css" />
+    <link rel="stylesheet" href="assets/css/kaiadmin.min.css" />
+
+</head>
+<body>
+    <header class="navbar navbar-expand-lg bg-dark">
+        <div class="container">
+            <ul class="nav nav-tabs nav-line nav-color-secondary mx-auto">
+              <li class="nav-item">
+                <a class="nav-link active text-white" id="line-home-tab" href="/index/admin">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" id="line-profile-tab" href="/perfil">Perfil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" id="line-contact-tab" href="/">Cerrar Sesión</a>
+              </li>
+            </ul>
+          </div>
+    </header>
+    <main class="justify-content-center align-items-center">
+    <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <div class="d-flex align-items-center">
+              <h4 class="card-title">Clientes Potenciales</h4>
+
+              <a href="/ClientesPO/añadir" class="btn btn-primary btn-round ms-auto">
+              
+                <i class="fa fa-plus"></i>
+                añadir
+            </a>
+            </div>
+          </div>
+            
+            <div class="table-responsive">
+              <table
+                id="add-row"
+                class="display table table-striped table-hover"
+              >
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Nombre de la Empresa</th>
+                    <th>Persona de contacto</th>
+                    <th>Correo Electrónico</th>
+                    <th>Telefóno</th>
+                    <th style="width: 10%">Editar | Eliminar</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <th>#</th>
+                    <th>Nombre de la Empresa</th>
+                    <th>Persona de contacto</th>
+                    <th>Correo Electrónico</th>
+                    <th>Telefóno</th>
+                    <th>Editar | Eliminar</th>
+                  </tr>
+                </tfoot>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Apple Inc.</td>
+                    <td>Camila Rojas</td>
+                    <td>camila.rojas@example.com</td>
+                    <td>+52 55 0123 4567</td>
+                    <td>
+                      <div class="form-button-action">
+                        <a href="/ClientesPO/editar"
+                          type="button"
+                          data-bs-toggle="tooltip"
+                          title=""
+                          class="btn btn-link btn-primary btn-lg"
+                          data-original-title="Edit Task"
+                        >
+                          <i class="fa fa-edit"></i>
+                        </a>
+                        <a href="/ClientesPO/eliminar"
+                          type="button"
+                          data-bs-toggle="tooltip"
+                          title=""
+                          class="btn btn-link btn-danger"
+                          data-original-title="Remove"
+                        >
+                          <i class="fa fa-times"></i>
+                        </a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Microsoft</td>
+                    <td>Diego Méndez</td>
+                    <td>diego.mendez@example.com</td>
+                    <td>+52 55 9012 3456</td>
+                    <td>
+                      <div class="form-button-action">
+                        <a href="/ClientesPO/editar"
+                          type="button"
+                          data-bs-toggle="tooltip"
+                          title=""
+                          class="btn btn-link btn-primary btn-lg"
+                          data-original-title="Edit Task"
+                        >
+                          <i class="fa fa-edit"></i>
+                        </a>
+                        <a href="/ClientesPO/eliminar"
+                          type="button"
+                          data-bs-toggle="tooltip"
+                          title=""
+                          class="btn btn-link btn-danger"
+                          data-original-title="Remove"
+                        >
+                          <i class="fa fa-times"></i>
+                        </a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Google (Alphabet Inc.)</td>
+                    <td>Sofía Herrera</td>
+                    <td>sofia.herrera@example.com</td>
+                    <td>+52 55 8901 2345</td>
+                    <td>
+                      <div class="form-button-action">
+                        <a href="/ClientesPO/editar"
+                          type="button"
+                          data-bs-toggle="tooltip"
+                          title=""
+                          class="btn btn-link btn-primary btn-lg"
+                          data-original-title="Edit Task"
+                        >
+                          <i class="fa fa-edit"></i>
+                        </a>
+                        <a href="/ClientesPO/eliminar"
+                          type="button"
+                          data-bs-toggle="tooltip"
+                          title=""
+                          class="btn btn-link btn-danger"
+                          data-original-title="Remove"
+                        >
+                          <i class="fa fa-times"></i>
+                        </a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Amazon</td>
+                    <td>Fernando Castillo</td>
+                    <td>fernando.castillo@example.com</td>
+                    <td>+52 55 7890 1234</td>
+                    <td>
+                      <div class="form-button-action">
+                        <a href="/ClientesPO/editar"
+                          type="button"
+                          data-bs-toggle="tooltip"
+                          title=""
+                          class="btn btn-link btn-primary btn-lg"
+                          data-original-title="Edit Task"
+                        >
+                          <i class="fa fa-edit"></i>
+                        </a>
+                        <a href="/ClientesPO/eliminar"
+                          type="button"
+                          data-bs-toggle="tooltip"
+                          title=""
+                          class="btn btn-link btn-danger"
+                          data-original-title="Remove"
+                        >
+                          <i class="fa fa-times"></i>
+                        </a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>JPMorgan Chase</td>
+                    <td>Mariana Ortega</td>
+                    <td>mariana.ortega@example.com</td>
+                    <td>+52 55 6789 0123</td>
+                    <td>
+                      <div class="form-button-action">
+                        <a href="/ClientesPO/editar"
+                          type="button"
+                          data-bs-toggle="tooltip"
+                          title=""
+                          class="btn btn-link btn-primary btn-lg"
+                          data-original-title="Edit Task"
+                        >
+                          <i class="fa fa-edit"></i>
+                        </a>
+                        <a href="/ClientesPO/eliminar"
+                          type="button"
+                          data-bs-toggle="tooltip"
+                          title=""
+                          class="btn btn-link btn-danger"
+                          data-original-title="Remove"
+                        >
+                          <i class="fa fa-times"></i>
+                        </a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>Goldman Sachs</td>
+                    <td>Carlos Ramírez</td>
+                    <td>carlos.ramirez@example.com</td>
+                    <td>+52 55 5678 9012</td>
+                    <td>
+                      <div class="form-button-action">
+                        <a href="/ClientesPO/editar"
+                          type="button"
+                          data-bs-toggle="tooltip"
+                          title=""
+                          class="btn btn-link btn-primary btn-lg"
+                          data-original-title="Edit Task"
+                        >
+                          <i class="fa fa-edit"></i>
+                        </a>
+                        <a href="/ClientesPO/eliminar"
+                          type="button"
+                          data-bs-toggle="tooltip"
+                          title=""
+                          class="btn btn-link btn-danger"
+                          data-original-title="Remove"
+                        >
+                          <i class="fa fa-times"></i>
+                        </a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>Visa</td>
+                    <td>Lucía Navarro</td>
+                    <td>lucia.navarro@example.com</td>
+                    <td>+52 55 4567 8901</td>
+                    <td>
+                      <div class="form-button-action">
+                        <a href="/ClientesPO/editar"
+                          type="button"
+                          data-bs-toggle="tooltip"
+                          title=""
+                          class="btn btn-link btn-primary btn-lg"
+                          data-original-title="Edit Task"
+                        >
+                          <i class="fa fa-edit"></i>
+                        </a>
+                        <a href="/ClientesPO/eliminar"
+                          type="button"
+                          data-bs-toggle="tooltip"
+                          title=""
+                          class="btn btn-link btn-danger"
+                          data-original-title="Remove"
+                        >
+                          <i class="fa fa-times"></i>
+                        </a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>PayPal</td>
+                    <td>Javier Gómez</td>
+                    <td>javier.gomez@example.com</td>
+                    <td>+52 55 3456 7890</td>
+                    <td>
+                      <div class="form-button-action">
+                        <a href="/ClientesPO/editar"
+                          type="button"
+                          data-bs-toggle="tooltip"
+                          title=""
+                          class="btn btn-link btn-primary btn-lg"
+                          data-original-title="Edit Task"
+                        >
+                          <i class="fa fa-edit"></i>
+                        </a>
+                        <a href="/ClientesPO/eliminar"
+                          type="button"
+                          data-bs-toggle="tooltip"
+                          title=""
+                          class="btn btn-link btn-danger"
+                          data-original-title="Remove"
+                        >
+                          <i class="fa fa-times"></i>
+                        </a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td>Tesla</td>
+                    <td>Valeria Fernández</td>
+                    <td>valeria.fernandez@example.com</td>
+                    <td>+52 55 2345 6789</td>
+                    <td>
+                      <div class="form-button-action">
+                        <a href="/ClientesPO/editar"
+                          type="button"
+                          data-bs-toggle="tooltip"
+                          title=""
+                          class="btn btn-link btn-primary btn-lg"
+                          data-original-title="Edit Task"
+                        >
+                          <i class="fa fa-edit"></i>
+                        </a>
+                        <a href="/ClientesPO/eliminar"
+                          type="button"
+                          data-bs-toggle="tooltip"
+                          title=""
+                          class="btn btn-link btn-danger"
+                          data-original-title="Remove"
+                        >
+                          <i class="fa fa-times"></i>
+                        </a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td>Meta Platforms</td>
+                    <td>Alejandro Morales</td>
+                    <td>alejandro.morales@example.com</td>
+                    <td>+52 55 1234 5678</td>
+                    <td>
+                      <div class="form-button-action">
+                        <a href="/ClientesPO/editar"
+                          type="button"
+                          data-bs-toggle="tooltip"
+                          title=""
+                          class="btn btn-link btn-primary btn-lg"
+                          data-original-title="Edit Task"
+                        >
+                          <i class="fa fa-edit"></i>
+                        </a>
+                        <a href="/ClientesPO/eliminar"
+                          type="button"
+                          data-bs-toggle="tooltip"
+                          title=""
+                          class="btn btn-link btn-danger"
+                          data-original-title="Remove"
+                        >
+                          <i class="fa fa-times"></i>
+                        </a>    
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+      </div>
+    </main>
+    
+    <footer class="footer">
+        <div class="container-fluid d-flex justify-content-between">
+          <nav class="pull-left">
+            <ul class="nav">
+              <li class="nav-item">
+                <a class="nav-link" href="http://www.themekita.com">
+                  ThemeKita
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"> Help </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"> Licenses </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="copyright">
+            2024, made with <i class="fa fa-heart heart text-danger"></i> by
+            <a href="http://www.themekita.com">ThemeKita</a>
+          </div>
+          <div>
+            Distributed by
+            <a target="_blank" href="https://themewagon.com/">ThemeWagon</a>.
+          </div>
+        </div>
+    </footer>
+
+
+    <script src="assets/js/core/jquery-3.7.1.min.js"></script>
+	<script src="assets/js/core/popper.min.js"></script>
+	<script src="assets/js/core/bootstrap.min.js"></script>
+	
+	<!-- jQuery Scrollbar -->
+	<script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+	<!-- Moment JS -->
+	<script src="assets/js/plugin/moment/moment.min.js"></script>
+
+	<!-- Chart JS -->
+	<script src="assets/js/plugin/chart.js/chart.min.js"></script>
+
+	<!-- jQuery Sparkline -->
+	<script src="assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+
+	<!-- Chart Circle -->
+	<script src="assets/js/plugin/chart-circle/circles.min.js"></script>
+
+	<!-- Datatables -->
+	<script src="assets/js/plugin/datatables/datatables.min.js"></script>
+
+	<!-- Bootstrap Notify -->
+	<script src="assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+
+	<!-- jQuery Vector Maps -->
+	<script src="assets/js/plugin/jsvectormap/jsvectormap.min.js"></script>
+	<script src="assets/js/plugin/jsvectormap/world.js"></script>
+
+	<!-- Sweet Alert -->
+	<script src="assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+
+	<!-- Kaiadmin JS -->
+	<script src="assets/js/kaiadmin.min.js"></script>
+
+</body>
+</html>
