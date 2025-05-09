@@ -19,50 +19,50 @@ public class TransaccionesController {
     private TransaccionesServices transaccionesServices;
 
     @GetMapping("/transacciones")
-    public String products(Model model) {
-        List<TransaccionesModel> productos = transaccionesServices.findAll();
-        model.addAttribute("productos", productos);
+    public String transaccion(Model model) {
+        List<TransaccionesModel> transacciones = transaccionesServices.findAll();
+        model.addAttribute("transacciones", transacciones);
         return "transaccion/transacciones_list";
     }
 
-    @GetMapping("/products/new")
-    public String mostrarFormularioProduct(Model model) {
-        ProductModel producto = new ProductModel();
-        model.addAttribute("producto", producto);
-        return "agregar-producto";
+    @GetMapping("/transacciones/new")
+    public String mostrarFormularioTransaccion(Model model) {
+        TransaccionesModel transaccion = new TransaccionesModel();
+        model.addAttribute("transaccion", transaccion);
+        return "transaccion/transacciones_add";
     }
 
-    @PostMapping("/products/guardar")
-    public String guardarProducto(@ModelAttribute ProductModel producto) {
-        productService.save(producto);
-        return "redirect:/products";
+    @PostMapping("/transacciones/guardar")
+    public String guardarProducto(@ModelAttribute TransaccionesModel transaccion) {
+        transaccionesServices.save(transaccion);
+        return "redirect:/transacciones";
     }
 
-    @GetMapping("/products/delete/{id}")
+    @GetMapping("/transaccion/delete/{id}")
     public String mostrarFormularioEliminarProducto(@PathVariable int id,
                                                     Model model) {
-        ProductModel producto = productService.findById(id);
-        model.addAttribute("producto", producto);
+        TransaccionesModel transaccion = transaccionesServices.findById(id);
+        model.addAttribute("transaccion", transaccion);
         return "eliminar-producto";
     }
 
     @PostMapping("/products/delete")
-    public String eliminarProducto(@ModelAttribute ProductModel producto) {
-        productService.delete(producto.getId());
+    public String eliminarProducto(@ModelAttribute TransaccionesModel transaccion) {
+        transaccionesServices.delete(transaccion.getId());
         return "redirect:/products";
     }
 
     @GetMapping("/products/edit/{id}")
     public String mostrarFormularioEditarProducto(@PathVariable int id,
                                                   Model model) {
-        ProductModel producto = productService.findById(id);
-        model.addAttribute("producto", producto);
+        TransaccionesModel transaccion = transaccionesServices.findById(id);
+        model.addAttribute("producto", transaccion);
         return "editar-producto";
     }
 
     @PostMapping("/products/edit")
-    public String editarProducto(@ModelAttribute ProductModel producto) {
-        productService.update(producto);
+    public String editarProducto(@ModelAttribute TransaccionesModel transaccion) {
+        transaccionesServices.update(transaccion);
         return "redirect:/products";
     }
 

@@ -6,13 +6,52 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import com.Yago.Examen.model.TransaccionesModel;
 import com.Yago.Examen.repositories.TransaccionesRepositories;
 
 public class TransaccionesServices implements TransaccionesRepositories {
 
-
     @Autowired
-    JdbcTemplate jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
 
+    @Override
+    public List<TransaccionesModel> findAll() {
+        return jdbcTemplate.query("SELECT * FROM transacciones",
+                new BeanPropertyRowMapper<>(TransaccionesModel.class));
+    }
 
+    @Override
+    public TransaccionesModel findById(int id) {
+        return jdbcTemplate.query("SELECT * FROM transacciones WHERE id=?",
+                new BeanPropertyRowMapper<>(TransaccionesModel.class), id)
+                .stream().findFirst().orElse(new TransaccionesModel());
+    }
+
+    @Override
+    public void save(TransaccionesModel transaccion) {
+        jdbcTemplate.update(
+            "INSERT INTO transacciones (cuenta, tipo, monto, fecha) VALUES (?, ?, ?, ?)",
+            transaccion.getCuenta(),
+            transaccion.getTipo(),
+            transaccion.getMonto(),
+            transaccion.getFecha()
+        );
+    }
+
+    @Override
+    public void update(TransaccionesModel transaccion) {
+        jdbcTemplate.update(
+            "UPDATE transacciones SET cuenta = ?, tipo = ?, monto = ?, fecha = ? WHERE id = ?",
+            transaccion.getCuenta(),
+            transaccion.getTipo(),
+            transaccion.getMonto(),
+            transaccion.getFecha(),
+            transaccion.getId()
+        );
+    }
+
+    @Override
+    public void delete(int id) {
+        jdbcTemplate.update("DELETE FROM transacciones WHERE id = ?", id);
+    }
 }
