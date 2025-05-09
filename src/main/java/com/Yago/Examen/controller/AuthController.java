@@ -2,6 +2,7 @@ package com.Yago.Examen.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class AuthController {
@@ -21,6 +22,10 @@ public class AuthController {
     @GetMapping("/forgot")
     public String forgot(){
         return "login_singUp/forgot";
+    }
+    @PostMapping("/login")
+    public String home(){
+        return "transaccion/tranbsacciones_list";
     }
 
 }
