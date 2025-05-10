@@ -2,13 +2,17 @@ package com.Yago.Examen.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class TransaccionesModel {
     private int id;
     private String cuenta;
     private String tipo;
     private double monto;
+    @DateTimeFormat(pattern = "yyyy-MM-dd") 
     private Date fecha;
 
+    
     public TransaccionesModel(int id, String cuenta, String tipo, double monto, Date fecha) {
         this.id = id;
         this.cuenta = cuenta;

@@ -44,7 +44,7 @@
               <img src="https://zacatecas.ipn.mx/assets/files/upiiz/img/conocenos/upiiz-500x500.png" alt="Logo" width="100" />
             </div>
             <h3 class="text-center">Crear una cuenta</h3>
-            <form action="/singup" method="post">
+            <form th:action="@{/singin}" method="post">
               <div class="form-group">
                 <label for="name">
                   <b>Nombre completo</b>
@@ -102,7 +102,7 @@
             <div class="login-account">
                 <span class="msg">
                 ¿Ya tienes una cuenta?
-                <a href="/login" id="show-login">Iniciar sesión</a>
+                <a th:href="@{/login}" id="show-login">Iniciar sesión</a>
                 </span>
                 </div>
             </div>

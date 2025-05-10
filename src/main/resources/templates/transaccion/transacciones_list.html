@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>clientes_potenciales</title>
+    <title>Transacciones Lista</title>
     
     <link
       rel="icon"
-      href="assets/img/kaiadmin/favicon.ico"
+      href="../assets/img/kaiadmin/favicon.ico"
       type="image/x-icon"
     />
 
     <!-- Fonts and icons -->
-    <script src="assets/js/plugin/webfont/webfont.min.js"></script>
+    <script src="../assets/js/plugin/webfont/webfont.min.js"></script>
     <script>
       WebFont.load({
         google: { families: ["Public Sans:300,400,500,600,700"] },
@@ -42,14 +42,14 @@
         <div class="container">
             <ul class="nav nav-tabs nav-line nav-color-secondary mx-auto">
               <li class="nav-item">
-                <a class="nav-link active text-white" id="line-home-tab" href="/index/admin">Inicio</a>
+                <a class="nav-link active text-white" id="line-home-tab" th:href="@{/transacciones}">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" id="line-profile-tab" href="/perfil">Perfil</a>
+                <a class="nav-link text-white" id="line-profile-tab" href="#">Perfil</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" id="line-contact-tab" href="/">Cerrar Sesión</a>
-              </li>
+                <a class="nav-link text-white" id="line-contact-tab" th:href="@{/login}">Cerrar Sesión</a>
+            </li>
             </ul>
           </div>
     </header>
@@ -58,9 +58,9 @@
         <div class="card">
           <div class="card-header">
             <div class="d-flex align-items-center">
-              <h4 class="card-title">Clientes Potenciales</h4>
+              <h4 class="card-title">Transacciones</h4>
 
-              <a href="/ClientesPO/añadir" class="btn btn-primary btn-round ms-auto">
+              <a th:href="@{/transacciones/nuevo}" class="btn btn-primary btn-round ms-auto">
               
                 <i class="fa fa-plus"></i>
                 añadir
@@ -73,25 +73,26 @@
                 id="add-row"
                 class="display table table-striped table-hover"
               >
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Nombre de la Empresa</th>
-                    <th>Persona de contacto</th>
-                    <th>Correo Electrónico</th>
-                    <th>Telefóno</th>
-                    <th style="width: 10%">Editar | Eliminar</th>
-                  </tr>
-                </thead>
-                <tfoot>
-                  <tr>
-                    <th>#</th>
-                    <th>Nombre de la Empresa</th>
-                    <th>Persona de contacto</th>
-                    <th>Correo Electrónico</th>
-                    <th>Telefóno</th>
-                    <th>Editar | Eliminar</th>
-                  </tr>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Cuenta</th>
+                  <th>Tipo</th>
+                  <th>Monto</th>
+                  <th>Fecha</th>
+                  <th style="width: 10%">Editar | Eliminar</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>#</th>
+                  <th>Cuenta</th>
+                  <th>Tipo</th>
+                  <th>Monto</th>
+                  <th>Fecha</th>
+                  
+                  <th>Editar | Eliminar</th>
+                </tr>
                 </tfoot>
                 <tbody>
                   <tr th:each="transaccion : ${transacciones}">
@@ -100,13 +101,7 @@
                     <td th:text="${transaccion.getTipo()}"></td>
                     <td th:text="'$ ' + ${transaccion.getMonto()}"></td>
                     <td th:text="${#dates.format(transaccion.getFecha(), 'dd/MM/yyyy')}"></td>
-                    <td>
-                        <a th:href="@{/transacciones/view/{id}(id=${transaccion.getId()})}">
-                            <button type="button" class="btn btn-icon btn-round btn-black">
-                                <i class="fa fa-eye"></i>
-                            </button>
-                        </a>
-                    </td>
+                    
                     <td>
                         <a th:href="@{/transacciones/edit/{id}(id=${transaccion.getId()})}">
                             <button class="btn btn-info">
@@ -126,7 +121,7 @@
                         </a>
                     </td>
                 </tr>
-                
+<!--                 
                   <tr>
                     <td>3</td>
                     <td>Google (Alphabet Inc.)</td>
@@ -358,7 +353,7 @@
                         </a>    
                       </div>
                     </td>
-                  </tr>
+                  </tr> -->
                 </tbody>
               </table>
             </div>

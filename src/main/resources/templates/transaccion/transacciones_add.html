@@ -39,15 +39,15 @@
     <header class="navbar navbar-expand-lg bg-dark">
         <div class="container">
             <ul class="nav nav-tabs nav-line nav-color-secondary mx-auto">
-                <li class="nav-item">
-                    <a class="nav-link active text-white" id="line-home-tab" href="/index/admin">Inicio</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link text-white" id="line-profile-tab" href="/perfil">Perfil</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link text-white" id="line-contact-tab" href="/">Cerrar Sesión</a>
-                </li>
+              <li class="nav-item">
+                <a class="nav-link active text-white" id="line-home-tab" th:href="@{/transacciones}">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" id="line-profile-tab" href="#">Perfil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" id="line-contact-tab" th:href="@{/login}">Cerrar Sesión</a>
+            </li>
             </ul>
           </div>
     </header>
@@ -59,50 +59,33 @@
                         <div class="card-title">Añadir Cliente Potencial</div>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="/ClientesPO/crear">
-                            <div class="form-group">
-                                <label>ID</label>
-                                <input
-                                type="number"
-                                class="form-control"
-                                id="ID_potencial_cliente"
-                                value="11"
-                                disabled
-                                />
-                                <label>Nombre de la Empresa</label>
-                                <input
-                                type="text"
-                                class="form-control form-control"
-                                id="nombre_empresa"
-                                placeholder="Ingrese el nombre de la empresa"
-                                />
-                                <label>Persona de Contacto</label>
-                                <input
-                                type="text"
-                                class="form-control"
-                                id="persona_contacto"
-                                placeholder="Ingrese el nombre de la persona de contacto"
-                                />
-                                <label>Correo Electronico</label>
-                                <input
-                                type="email"
-                                class="form-control"
-                                id="email2"
-                                placeholder="Ingrese Correo Electronico"
-                                />
-                                <label>Número de Telefóno</label>
-                                <input
-                                type="text"
-                                class="form-control"
-                                id="numero_persona_contacto"
-                                placeholder="Ingrese el número telefónico de la persona de contacto"
-                                />
-                            </div>
-                            <div class="card-action">
-                                <input type="submit" class="btn btn-success" value="Crear">
-                                <a href="/ClientesPO" class="btn btn-danger">Cancelar</a>
-                            </div>
-                        </form>
+                        <form method="post" th:action="@{/transacciones/guardar}" th:object="${transaccion}">
+                          <div class="form-group">
+                              <label>ID</label>
+                              <input type="number" th:field="*{id}" class="form-control" readonly />
+                      
+                              <label>Cuenta</label>
+                              <input type="text" th:field="*{cuenta}" class="form-control" placeholder="Ingrese la cuenta" />
+                      
+                              <label>Tipo</label>
+                              <select th:field="*{tipo}" class="form-control">
+                                  <option value="depósito">Depósito</option>
+                                  <option value="retiro">Retiro</option>
+                                  <option value="transferencia">Transferencia</option>
+                              </select>
+                      
+                              <label>Monto</label>
+                              <input type="text" th:field="*{monto}" class="form-control" placeholder="Ingrese el monto" />
+                      
+                              <label>Fecha</label>
+                              <input type="date" th:field="*{fecha}" class="form-control" placeholder="Ingrese la fecha de la transacción" />
+                          </div>
+                      
+                          <div class="card-action mt-3">
+                              <input type="submit" class="btn btn-success" value="Guardar">
+                              <a th:href="@{/transacciones}" class="btn btn-danger">Cancelar</a>
+                          </div>
+                      </form>
                     </div>
                 </div>
             </div>

@@ -15,6 +15,7 @@ import com.Yago.Examen.services.TransaccionesServices;
 
 @Controller
 public class TransaccionesController {
+
     @Autowired
     private TransaccionesServices transaccionesServices;
 
@@ -25,7 +26,7 @@ public class TransaccionesController {
         return "transaccion/transacciones_list";
     }
 
-    @GetMapping("/transacciones/new")
+    @GetMapping("/transacciones/nuevo")
     public String mostrarFormularioTransaccion(Model model) {
         TransaccionesModel transaccion = new TransaccionesModel();
         model.addAttribute("transaccion", transaccion);
@@ -33,37 +34,39 @@ public class TransaccionesController {
     }
 
     @PostMapping("/transacciones/guardar")
-    public String guardarProducto(@ModelAttribute TransaccionesModel transaccion) {
+    public String guardarTransaccion(@ModelAttribute TransaccionesModel 
+                                    transaccion) {
         transaccionesServices.save(transaccion);
         return "redirect:/transacciones";
     }
 
-    @GetMapping("/transaccion/delete/{id}")
-    public String mostrarFormularioEliminarProducto(@PathVariable int id,
+    @GetMapping("/transacciones/delete/{id}")
+    public String mostrarFormularioEliminarTransaccion(@PathVariable int id,
                                                     Model model) {
         TransaccionesModel transaccion = transaccionesServices.findById(id);
         model.addAttribute("transaccion", transaccion);
-        return "eliminar-producto";
+        return "transaccion/transacciones_del";
     }
 
-    @PostMapping("/products/delete")
-    public String eliminarProducto(@ModelAttribute TransaccionesModel transaccion) {
+    @PostMapping("/transacciones/delete")
+    public String eliminarTransaccion(@ModelAttribute TransaccionesModel transaccion) {
         transaccionesServices.delete(transaccion.getId());
-        return "redirect:/products";
+        return "redirect:/transacciones";
     }
 
-    @GetMapping("/products/edit/{id}")
-    public String mostrarFormularioEditarProducto(@PathVariable int id,
-                                                  Model model) {
+    @GetMapping("/transacciones/edit/{id}")
+    public String mostrarFormularioEditarTransaccion(@PathVariable int id,
+                                                Model model) {
         TransaccionesModel transaccion = transaccionesServices.findById(id);
-        model.addAttribute("producto", transaccion);
-        return "editar-producto";
+        model.addAttribute("transaccion", transaccion);
+        return "transaccion/transacciones_edit";
     }
 
-    @PostMapping("/products/edit")
-    public String editarProducto(@ModelAttribute TransaccionesModel transaccion) {
+    @PostMapping("/transacciones/edit")
+    public String editarTransaccion(@ModelAttribute TransaccionesModel transaccion) {
         transaccionesServices.update(transaccion);
-        return "redirect:/products";
+        return "redirect:/transacciones";
     }
+
 
 }

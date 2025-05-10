@@ -46,7 +46,7 @@
           <h3 class="text-center">Recuperar contraseña</h3>
           <p class="text-center">Ingresa tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.</p>
           
-          <form action="/forgot" method="post">
+          <form th:action="@{/forgot}" method="post">
             <div class="form-group">
               <label for="email">
                 <b>Email</b>
@@ -68,7 +68,7 @@
           <div class="login-account">
             <span class="msg">
               ¿Ya recuerdas tu contraseña?  
-              <a href="/login" id="show-login">Iniciar sesión</a>
+              <a th:href="@{/login}" id="show-login">Iniciar sesión</a>
             </span>
           </div>
         </div>

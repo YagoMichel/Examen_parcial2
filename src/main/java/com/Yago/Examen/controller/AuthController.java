@@ -25,7 +25,16 @@ public class AuthController {
     }
     @PostMapping("/login")
     public String home(){
-        return "transaccion/tranbsacciones_list";
+        return "redirect:/transacciones";
     }
+    @PostMapping("/singin")
+    public String home_sing(){
+        return "redirect:/transacciones";
+    }
+    @PostMapping("/forgot")
+    public String loginforgot(){
+        return "redirect:/login";
+    }
+    
 
 }
